@@ -18,7 +18,7 @@ class App extends Component {
       allExperience: [{
         id: uniqid(),
         position: "",
-        company: "",
+        location: "",
         city: "",
         from: "",
         to: "",
@@ -38,12 +38,13 @@ class App extends Component {
       });
   }
 
+  // add a new empty experience
   handleAddExperience = () => {
     let newExperience = {
       id: uniqid(),
       position: "",
       company: "",
-      city: "",
+      location: "",
       from: "",
       to: "",
       description: ""
@@ -53,14 +54,28 @@ class App extends Component {
     })
   }
 
+  handleExperienceInput = (e) => {
+    // figure out with experience to change by getting the parent div's id
+    const id = e.target.parentElement.id;
+    const updatedExperience = {...this.state.allExperience.find(exp => exp.id === id)}
+    // change the values in experience
+    updatedExperience[e.target.name] = e.target.value;
+    // update the experience list with the new modified experience.
+    this.setState({
+      // if the experience isn't the one we modified, return just exp. e
+      allExperience: this.state.allExperience.map(exp => { return (exp.id !== id) ? exp : updatedExperience})
+    })
+  }
+
   render() {
     const handleInput = this.handleInput;
     const handleAddExperience = this.handleAddExperience;
+    const handleExperienceInput = this.handleExperienceInput;
     const experienceList = this.state.allExperience;
     return <div>
       <div className='create-cv'>
         <General handleInput = { handleInput }/>
-        <Experience experienceList = {experienceList} handleAddExperience = { handleAddExperience }/>
+        <Experience experienceList = {experienceList} handleAddExperience = { handleAddExperience } handleExperienceInput= {handleExperienceInput}/>
       </div>
       <div className='preview'>
 
