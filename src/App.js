@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import General from "./components/general";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      general: {
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        github: "",
+        linkedIn: ""
+    }
+  }
+  }
+
+  handleInput = (e) => {
+    const value = e.target.value;
+    this.setState({
+      general: {
+        ...this.state.general,
+        [e.target.name]: value
+        }
+      });
+  }
+
+  render() {
+    const handleInput = this.handleInput;
+    return <div>
+      <div className='create-cv'>
+        <General handleInput = { handleInput }/>
+      </div>
+      <div className='preview'>
+
+      </div>
+    </div>;
+  }
 }
 
 export default App;
