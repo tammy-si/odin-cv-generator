@@ -3,6 +3,7 @@ import General from "./components/general";
 import Experience from "./components/experience";
 import Education from "./components/education";
 import Project from "./components/projects";
+import Technical from "./components/technical";
 
 import uniqid from "uniqid";
 
@@ -41,7 +42,13 @@ class App extends Component {
         from: "",
         to: "",
         description: ""
-      }]
+      }],
+      technicalSkills: {
+        languages: "",
+        frameworks: "",
+        developerTools: "",
+        libraries: ""
+      }
   }
   }
 
@@ -175,7 +182,16 @@ class App extends Component {
     })
   }
 
-
+  /* for the technical skills area */
+  handleTechnicalSkillsInput = (e) => {
+    const value = e.target.value;
+    this.setState({
+      technicalSkills: {
+        ...this.state.technicalSkills,
+        [e.target.name]: value
+        }
+      });
+  }
   render() {
     const handleInput = this.handleInput;
     const handleAddExperience = this.handleAddExperience;
@@ -193,12 +209,15 @@ class App extends Component {
     const handleProjectInput = this.handleProjectInput;
     const handleProjectDelete = this.handleProjectDelete;
 
+    /* for technical skills */
+    const handleTechnicalSkillsInput = this.handleTechnicalSkillsInput;
     return <div>
       <div className='create-cv'>
         <General handleInput = { handleInput }/>
         <Education educationList = {educationList} handleAddEducation = { handleAddEducation} handleEducationInput = { handleEducationInput } handleEducationDelete= { handleEducationDelete }/>
         <Experience experienceList = {experienceList} handleAddExperience = { handleAddExperience } handleExperienceInput= {handleExperienceInput} handleExperienceDelete={handleExperienceDelete}/>
         <Project projectList = {projectList} handleAddProject = { handleAddProject } handleProjectInput= {handleProjectInput} handleProjectDelete={handleProjectDelete}/>
+        <Technical handleTechnicalSkillsInput = { handleTechnicalSkillsInput }/>
       </div>
       <div className='preview'>
 

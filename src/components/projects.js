@@ -2,7 +2,6 @@ import React from "react";
 
 const Project = (props) => {
     const {projectList, handleAddProject, handleProjectInput, handleProjectDelete} = props;
-    console.log(projectList)
     return (
         <div className="Education">
             <h1>Projects</h1>
