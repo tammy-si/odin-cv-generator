@@ -2,7 +2,6 @@ import React from "react";
 
 const Experience = (props) => {
     const { experienceList, handleAddExperience, handleExperienceInput, handleExperienceDelete } = props;
-    console.log(experienceList)
     return (
         <div className="experience">
             <h1>Experience</h1>
