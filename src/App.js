@@ -67,15 +67,27 @@ class App extends Component {
     })
   }
 
+  handleExperienceDelete = (e) => {
+    // figure out with experience to delete by getting the parent div's id
+    const id = e.target.parentElement.id;
+    console.log(id);
+    // delete the experience 
+    this.setState({
+      // if the experience isn't the one we modified, return just exp. e
+      allExperience: this.state.allExperience.filter(exp => exp.id !== id)
+    })
+  }
+
   render() {
     const handleInput = this.handleInput;
     const handleAddExperience = this.handleAddExperience;
     const handleExperienceInput = this.handleExperienceInput;
+    const handleExperienceDelete = this.handleExperienceDelete;
     const experienceList = this.state.allExperience;
     return <div>
       <div className='create-cv'>
         <General handleInput = { handleInput }/>
-        <Experience experienceList = {experienceList} handleAddExperience = { handleAddExperience } handleExperienceInput= {handleExperienceInput}/>
+        <Experience experienceList = {experienceList} handleAddExperience = { handleAddExperience } handleExperienceInput= {handleExperienceInput} handleExperienceDelete={handleExperienceDelete}/>
       </div>
       <div className='preview'>
 
