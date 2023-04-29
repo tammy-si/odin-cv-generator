@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Experience = (props) => {
     const { experienceList, handleAddExperience, handleExperienceInput, handleExperienceDelete } = props;
@@ -8,7 +8,7 @@ const Experience = (props) => {
             <h1>Experience</h1>
             {experienceList.map((experience) => {
                 return (
-                <div id={experience.id}>
+                <div key={experience.id} id={experience.id}>
                     <input name='position' placeholder="Position" onChange={handleExperienceInput} value={experience.position} />
                     <input name='company' placeholder="Company" onChange={handleExperienceInput} value={experience.company} />
                     <input name='location' placeholder="Location" onChange={handleExperienceInput} value={experience.location} />
