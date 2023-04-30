@@ -344,7 +344,7 @@ class App extends Component {
         String.raw`\resumeSubheading
           {${edu.school}}{${edu.location}}
           {${edu.degree}}{${edu.from} -- ${edu.to}}`
-      )}
+      ).join("\n")}
       \resumeSubHeadingListEnd` 
       : ""}
     
@@ -352,32 +352,34 @@ class App extends Component {
     ${this.state.allExperience.length !== 0 ?
       String.raw`\section{Experience}
       \resumeSubHeadingListStart
-  
-        \resumeSubheading
-          {Undergraduate Research Assistant}{June 2020 -- Present}
-          {Texas A\&M University}{College Station, TX}
+        ${this.state.allExperience.map(exp =>
+          String.raw`\resumeSubheading
+          {${exp.position}}{${exp.from} -- ${exp.to}}
+          {${exp.company}}{${exp.location}}
           \resumeItemListStart
-            \resumeItem{Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems}
-            \resumeItem{Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data}
-            \resumeItem{Explored ways to visualize GitHub collaboration in a classroom setting}
-          \resumeItemListEnd
+            ${exp.description.split('\n').map(point =>
+              String.raw`\resumeItem{Test}`
+            ).join('\n')}
+          \resumeItemListEnd`
+        ).join('\n')}
       \resumeSubHeadingListEnd`
       : "" }
         
     
     %-----------PROJECTS-----------
-    ${this.state.allExperience.length !== 0 ?
-    String.raw`\section{Projects}
-        \resumeSubHeadingListStart
-          \resumeProjectHeading
-              {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
-              \resumeItemListStart
-                \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
-                \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
-                \resumeItem{Visualized GitHub data to show collaboration}
-                \resumeItem{Used Celery and Redis for asynchronous tasks}
-              \resumeItemListEnd
-        \resumeSubHeadingListEnd`
+    ${this.state.allProjects.length !== 0 ?
+      String.raw`\section{Projects}
+      \resumeSubHeadingListStart
+      ${this.state.allProjects.map(proj =>
+        String.raw`\resumeProjectHeading
+            {\textbf{${proj.name}} $|$ \emph{${proj.technologies}}}{${proj.from} -- ${proj.to}}
+            \resumeItemListStart
+            ${proj.description.split('\n').map(point =>
+              String.raw`\resumeItem{${point}}`
+            ).join("\n")}
+            \resumeItemListEnd`
+      ).join("\n")}
+      \resumeSubHeadingListEnd`
     : "" }
     
     
@@ -406,7 +408,7 @@ class App extends Component {
       </div>
       <div className='preview'>
         <form action="https://www.overleaf.com/docs" method="post" target="_blank">
-        <textarea rows="8" cols="60" name="snip" value={string}>
+        <textarea rows="8" cols="60" name="snip" value={string} style={{display: "none"}}>
         </textarea>
         <input type="submit" value="Open in Overleaf"></input>
         </form>
