@@ -3,7 +3,7 @@ import React from "react";
 const Education = (props) => {
     const {educationList, handleAddEducation, handleEducationInput, handleEducationDelete} = props;
     return (
-        <div className="Education">
+        <div className="education">
             <h1>Education</h1>
             {educationList.map((education) => {
                 return (

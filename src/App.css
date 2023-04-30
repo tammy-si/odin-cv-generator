@@ -1,0 +1,65 @@
+body {
+    background-color: #93c5fd;
+    display: flex;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#root {
+    width: 100%;
+    margin: 0 10%;
+}
+
+.create-cv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #082f49;
+    border-radius: 12pt;
+    padding: 10px 40px;
+}
+
+.create-cv div{
+    display:flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.main-text {
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 22pt;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 18pt;
+    color: white;
+}
+
+input, textarea {
+    padding: 10px;
+    margin: 5px;
+    flex: 1;
+}
+
+textarea {
+    resize: none;
+    flex: 1;
+}
+
+.overleaf-button {
+    background-color: green;
+    margin:10px auto;
+    display:block;
+    border-radius: 12pt;
+    border: none;
+}
+
+.create-cv button{
+    padding: 5px;
+    background-color: #0ea5e9;
+    border: none;
+    border-radius: 8pt;
+}

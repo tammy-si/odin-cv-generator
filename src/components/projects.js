@@ -3,7 +3,7 @@ import React from "react";
 const Project = (props) => {
     const {projectList, handleAddProject, handleProjectInput, handleProjectDelete} = props;
     return (
-        <div className="Education">
+        <div className="projects">
             <h1>Projects</h1>
             {projectList.map((project) => {
                 return (
@@ -12,7 +12,7 @@ const Project = (props) => {
                     <input name='technologies' placeholder="Technologies Used" onChange={handleProjectInput} value={project.technologies}/>
                     <input name='from' placeholder="From" onChange={handleProjectInput} value={project.from}/>
                     <input name='to' placeholder="To" onChange={handleProjectInput} value={project.to}/>
-                    <textarea name='description' placeholder="Description" onChange={handleProjectInput} value={ project.description }></textarea>
+                    <textarea name='description' placeholder="Description (bullet points are separated by new lines)" onChange={handleProjectInput} value={ project.description }></textarea>
                     <button onClick={handleProjectDelete}>Delete Project</button>
                 </div>)
             })}

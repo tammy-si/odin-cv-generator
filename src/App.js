@@ -4,7 +4,7 @@ import Experience from "./components/experience";
 import Education from "./components/education";
 import Project from "./components/projects";
 import Technical from "./components/technical";
-
+import './App.css'
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -398,7 +398,8 @@ class App extends Component {
     
     %-------------------------------------------
     \end{document}`
-    return <div>
+    return <div class="main-content">
+      <p class="main-text">Jake's Resume Generator</p>
       <div className='create-cv'>
         <General handleInput = { handleInput }/>
         <Education educationList = {educationList} handleAddEducation = { handleAddEducation} handleEducationInput = { handleEducationInput } handleEducationDelete= { handleEducationDelete }/>
@@ -410,7 +411,7 @@ class App extends Component {
         <form action="https://www.overleaf.com/docs" method="post" target="_blank">
         <textarea rows="8" cols="60" name="snip" value={string} style={{display: "none"}}>
         </textarea>
-        <input type="submit" value="Open in Overleaf"></input>
+        <input type="submit" value="Open in Overleaf" className="overleaf-button"></input>
         </form>
       </div>
     </div>;

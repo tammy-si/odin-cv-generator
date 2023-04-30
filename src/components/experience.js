@@ -13,7 +13,7 @@ const Experience = (props) => {
                     <input name='location' placeholder="Location" onChange={handleExperienceInput} value={experience.location} />
                     <input name='from' placeholder="From" onChange={handleExperienceInput} value={experience.form} />
                     <input name='to' placeholder="To" onChange={handleExperienceInput} value={experience.to} />
-                    <textarea name='description' placeholder="Description" onChange={handleExperienceInput} value={ experience.description }></textarea>
+                    <textarea name='description' placeholder="Description (bullet points are separated by new lines)" onChange={handleExperienceInput} value={ experience.description }></textarea>
                     <button onClick={handleExperienceDelete}>Delete Experience</button>
                 </div>)
             })}
