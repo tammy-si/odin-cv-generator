@@ -1,3 +1,6 @@
+# About
+This project helps generate a resume based on the Jake's Resume format. You just put in your information and then click the Open in Overleaf button. An Overleaf account is needed. This project was made with HTML, CSS, Javascript (React). This project is hosted on Github Pages.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
