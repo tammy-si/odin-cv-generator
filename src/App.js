@@ -211,6 +211,8 @@ class App extends Component {
 
     /* for technical skills */
     const handleTechnicalSkillsInput = this.handleTechnicalSkillsInput;
+    const firstName = this.state.general.firstName;
+    console.log(firstName);
     // string
     const string = String.raw`
     %-------------------------
@@ -327,10 +329,10 @@ class App extends Component {
     % \end{tabular*}
     
     \begin{center}
-        \textbf{\Huge \scshape Jake Ryan} \\ \vspace{1pt}
-        \small 123-456-7890 $|$ \href{mailto:x@x.com}{\underline{jake@su.edu}} $|$ 
-        \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/jake}} $|$
-        \href{https://github.com/...}{\underline{github.com/jake}}
+        \textbf{\Huge \scshape ${firstName} ${this.state.general.lastName}} \\ \vspace{1pt}
+        \small ${this.state.general.phone} $|$ \href{${this.state.general.email}}{\underline{{${this.state.general.email}}}} $|$ 
+        \href{${this.state.general.linkedIn}}{\underline{${this.state.general.linkedIn}}} $|$
+        \href{${this.state.general.github}}{\underline{${this.state.general.github}}}
     \end{center}
     
     
