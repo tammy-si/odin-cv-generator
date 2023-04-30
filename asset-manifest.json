@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/odin-cv-generator/static/css/main.48a0012b.css",
+    "main.js": "/odin-cv-generator/static/js/main.a63bed40.js",
+    "index.html": "/odin-cv-generator/index.html",
+    "main.48a0012b.css.map": "/odin-cv-generator/static/css/main.48a0012b.css.map",
+    "main.a63bed40.js.map": "/odin-cv-generator/static/js/main.a63bed40.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48a0012b.css",
+    "static/js/main.a63bed40.js"
+  ]
+}
