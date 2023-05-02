@@ -373,9 +373,7 @@ function App() {
   
   %-------------------------------------------
   \end{document}`
-  
-  console.log(string)
-  return( 
+    return( 
     <div class="main-content">
       <p class="main-text">Jake's Resume Generator</p>
       <div className='create-cv'>
